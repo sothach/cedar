@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.seefin</groupId>
+    <artifactId>cedar</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+
+    <name>Cedar T3</name>
+    <description>Dependencies for Cedar Task Tracking Tool</description>
+    <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <id>phillipsr</id>
+            <name>Roy Phillips</name>
+            <email>phillips.roy@gmail.com</email>
+            <url>http://www.linkedin.com/profile/view?id=11565070</url>
+            <organization>Seefin OS</organization>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>Seefin OS</name>
+    </organization>
+
+    <modules>
+        <module>parent</module>
+        <module>model</module>
+        <module>service</module>
+        <module>webui</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <configuration>
+                    <includes>
+                        <include>org.seefin.*</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

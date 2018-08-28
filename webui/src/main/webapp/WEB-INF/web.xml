@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+
+    <display-name>Cedar T3 App</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:org/seefin/cedar/webui/CedarWebUI-context.xml
+        </param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Vaadin</servlet-name>
+        <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+        <init-param>
+            <description>Vaadin UI to display</description>
+            <param-name>UI</param-name>
+            <param-value>org.seefin.cedar.webui.login.CedarLoginUI</param-value>
+        </init-param>
+
+        <!-- temp. disabled while profiling with JMeter -->
+        <init-param>
+            <param-name>disable-xsrf-protection</param-name>
+            <param-value>false</param-value>
+        </init-param>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Vaadin</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
+
+        <!--
+            <security-constraint>
+                <display-name>SecureApplicationConstraint</display-name>
+                <web-resource-collection>
+                    <web-resource-name>Vaadin application</web-resource-name>
+                    <description>The entire Vaadin application is protected</description>
+                    <url-pattern>/ui/*</url-pattern>
+                </web-resource-collection>
+                <auth-constraint>
+                    <description>Limit access to authorized users</description>
+                    <role-name>OWNER</role-name>
+                </auth-constraint>
+            </security-constraint>
+
+            <login-config>
+                <auth-method>FORM</auth-method>
+                <realm-name>file</realm-name>
+                <form-login-config>
+                    <form-login-page>/login.jsp</form-login-page>
+                    <form-error-page>/loginError.jsp</form-error-page>
+                </form-login-config>
+            </login-config>
+
+            <security-role>
+                <description />
+                <role-name>OWNER</role-name>
+            </security-role>
+         -->
+        <!--
+            <security-constraint>
+                <display-name>SecureChannelConstraint</display-name>
+                <web-resource-collection>
+                    <web-resource-name>Entire site</web-resource-name>
+                    <description />
+                    <url-pattern>/*</url-pattern>
+                </web-resource-collection>
+                <user-data-constraint>
+                    <description>Require encrypted channel</description>
+                    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+                </user-data-constraint>
+            </security-constraint>
+         -->

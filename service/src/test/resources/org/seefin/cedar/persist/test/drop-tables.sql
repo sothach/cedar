@@ -1,0 +1,2 @@
+drop table FEA_TRANSACTION_LOG;
+drop table FEA_CHANNEL_LIMITS;

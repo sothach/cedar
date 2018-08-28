@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cedar-webui:war">
+    <output-path>$PROJECT_DIR$/webui/target</output-path>
+    <root id="archive" name="cedar-webui-2.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cedar-webui:war exploded" />
+    </root>
+  </artifact>
+</component>

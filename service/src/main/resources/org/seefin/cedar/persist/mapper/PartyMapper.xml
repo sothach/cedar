@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- MyBatis auto-magically implements the mapper interface with this SQL code -->
+
+<mapper namespace="org.seefin.cedar.persist.mapper.PartyMapper">
+
+    <select id="find" parameterType="string" resultType="hashmap" fetchSize="1">
+        select * from PARTY where ID = #{id}
+    </select>
+
+    <select id="findByUsername" parameterType="string" resultType="hashmap" fetchSize="1">
+        select * from PARTY where USERNAME = #{username}
+    </select>
+
+    <insert id="insert" parameterType="org.seefin.cedar.model.parties.Individual">
+        insert into PARTY (id, username, password, locale)
+        values (#{id.externalForm}, #{name}, #{password}, #{locale})
+    </insert>
+
+</mapper>

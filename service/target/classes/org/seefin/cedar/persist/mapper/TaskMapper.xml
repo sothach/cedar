@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- MyBatis auto-magically implements the mapper interface with this SQL code -->
+
+<mapper namespace="org.seefin.cedar.persist.mapper.TaskMapper">
+
+    <select id="find" parameterType="string" resultType="hashmap" fetchSize="1">
+        select *
+        from TASK
+        where ID = #{id}
+          and state != 'DELETED'
+        order by CREATE_TIME desc
+    </select>
+
+    <select id="findAllTasksForParty" parameterType="string" resultType="hashmap">
+        select *
+        from TASK
+        where OWNER_ID = #{id}
+          and state != 'DELETED'
+        order by CREATE_TIME desc
+    </select>
+
+    <select id="getTaskCount" parameterType="string" resultType="int" fetchSize="1">
+        select count(*)
+        from TASK
+        where OWNER_ID = #{id}
+          and state != 'DELETED'
+    </select>
+
+    <insert id="insert" parameterType="org.seefin.cedar.model.tasks.Task">
+        insert into TASK (id, description, create_time, owner_id, state)
+        values (#{id.externalForm}, #{description}, #{createTime.nano}, #{owner.id.externalForm}, #{state})
+    </insert>
+
+    <update id="update" parameterType="org.seefin.cedar.model.tasks.Task">
+        update TASK
+        set description = #{description},
+            create_time = #{createTime.nano},
+            owner_id = #{owner.id.externalForm},
+            state = #{state}
+        where ID = #{id.externalForm}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        delete
+        from TASK
+        where ID = #{id}
+    </delete>
+
+</mapper>

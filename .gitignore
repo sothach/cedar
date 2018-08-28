@@ -1,0 +1,17 @@
+.classpath
+.project
+.settings
+syntax: glob
+*.class
+*.jar
+*.log
+*.iml
+*.pdf
+*.ldif
+syntax: regexp
+/target$
+/logs
+/data$
+^KahaDB
+^.idea$
+^.c9revisions$

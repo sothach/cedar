@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <ctx:component-scan base-package="org.seefin.cedar.service">
+        <ctx:include-filter type="annotation"
+                            expression="cuke4duke.spring.StepDefinitions"/>
+    </ctx:component-scan>
+
+    <import resource="classpath:org/seefin/cedar/service/specs/SpecTest-context.xml"/>
+
+</beans>
