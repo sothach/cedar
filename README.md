@@ -1,22 +1,28 @@
+# Cedar Task Manager
 
-# User story
-"As a busy developer, I need an easy way to create a to-do list to record stuff I've got to 
+### Status
+[![Build Status](https://travis-ci.org/sothach/cedar.png)](https://travis-ci.org/sothach/cedar)
+[![Coverage Status](https://coveralls.io/repos/github/sothach/cedar/badge.svg?branch=master)](https://coveralls.io/github/sothach/cedar?branch=master)
+
+
+## User story
+> "As a busy developer, I need an easy way to create a to-do list to record stuff I've got to 
 get done, in order that I do not forget anything important"
 
-## UACs
-- User can sign in using unique login and password. This can be hardcoded to a default user list  
-user management functionality is not required. Please create at least one account for user 
-test with password abc123. 
+### UACs
+- User can sign in using unique login and password. This can be hardcoded to a default user list
+- user management functionality is not required. 
+- Please create at least one account for user 'test' with password 'abc123'
 - User can view his/her current task list 
 - User can check/uncheck any task on their list 
 - User can add/remove task 
-- All changes should be persistent  when a user signs into the system next time they will see 
+- All changes should be persistent; when a user signs into the system next time they will see 
 changes made during previous session.
-- Each task contains a text description and date when the entry was created. Both fields should 
+- Each task contains a text description and date when the entry was created. Both fields should 
 be displayed in the UI.
 - Since application can be used to by many users, the application should consider performance
 
-## Definition of Done
+### Definition of Done
 * UACs satisfied
 * Unit test coverage: 95%+
 * i18n ready
@@ -123,18 +129,34 @@ Concurrent update policy: optimistic, last man wins as data is access is all per
 UI text is abstracted to a resource bundle, English and German provided (login as roy/pa55sw0rd  for German locale)
 
 ### Test Environments
-* Tomcat (versions: 6.0.29 as maven plugin, 7.0.19 server)
+* Tomcat version 9.0.11)
 * Browsers: Chrome 28.0, Firefox 20.0.1, Internet Explorer 8.0
 * url: http://localhost:8080/cedar-webui/ (or as per Tomcat deployment / war file name)
 
-
+## Building & testing
+## Build
+```
+mvn clean compile
+```
+## Testing
+```
+mvn test 
+```
+## Start local server
+```
+mvn tomcat:run
+```
+Visit: [http://localhost:8080/cedar-webui](http://localhost:8080/cedar-webui)
 ## Test Coverage Report
-
 ```
-mvn cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=html
+mvn cobertura:cobertura 
 ```
+## Author
+* [Roy Phillips](mailto:phillips.roy@gmail.com)
 
-### Status
-[![Build Status](https://travis-ci.org/sothach/cedar.png)](https://travis-ci.org/sothach/cedar)
-[![Coverage Status](https://coveralls.io/repos/github/sothach/cedar/badge.svg?branch=master)](https://coveralls.io/github/sothach/cedar?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b938c9a4d5a24b7ba4e8423f19ae4c0f)](https://www.codacy.com/app/sothach/cedar?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sothach/cedar&amp;utm_campaign=Badge_Grade)
+## License
+[![License](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) 
+
+(c) 2013 This project is licensed under Creative Commons License
+
+[Attribution 4.0 International (CC BY 4.0)](LICENSE.md)

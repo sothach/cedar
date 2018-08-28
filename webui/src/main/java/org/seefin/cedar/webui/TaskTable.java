@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author phillipsr
  */
-public class TaskTable
+class TaskTable
         extends Table {
     private final String descriptionLabel;
     private final String descriptionCaption;
@@ -32,7 +32,7 @@ public class TaskTable
         dataTimeFormatter = DateTimeFormatter.ofPattern(parent.getDateTimePattern());
 
         this.setContainerDataSource(parent.getTaskContainer());
-        this.setVisibleColumns(parent.getVisibleColumns());
+        this.setVisibleColumns(parent.getVisibleColumns(), null);
         this.setSelectable(true);
         this.setMultiSelect(false);
         this.setImmediate(true);

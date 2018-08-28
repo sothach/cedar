@@ -12,7 +12,7 @@ import javax.servlet.ServletContext;
  */
 public class SpringContextHelper {
 
-    private ApplicationContext context;
+    private final ApplicationContext context;
 
     public SpringContextHelper(ServletContext servletContext) {
         /*ServletContext servletContext = 

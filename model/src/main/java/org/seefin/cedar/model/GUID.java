@@ -22,7 +22,7 @@ public class GUID
      * number generator<p/>
      * see {@link java.util.UUID}
      */
-    protected GUID() {
+    GUID() {
         this(UUID.randomUUID().toString());
     }
 
@@ -31,7 +31,7 @@ public class GUID
      *
      * @param externalForm canonical UUID string
      */
-    protected GUID(String externalForm) {
+    GUID(String externalForm) {
         if (externalForm == null || externalForm.isEmpty()) {
             throw new IllegalArgumentException("GUID string cannot be null or empty");
         }

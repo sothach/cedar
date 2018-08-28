@@ -50,7 +50,6 @@ public final class Individual
     }
 
     @Override
-    /** {@inheritDoc} */
     public PartyId getId() {
         return id;
     }

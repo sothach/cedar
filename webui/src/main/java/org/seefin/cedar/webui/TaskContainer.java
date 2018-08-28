@@ -18,15 +18,15 @@ import java.util.Optional;
 /**
  * @author phillipsr
  */
-public class TaskContainer
+class TaskContainer
         extends IndexedContainer {
     private static final Logger log = LoggerFactory.getLogger(TaskContainer.class);
 
     private Individual owner;
-    private String descriptionLabel;
-    private String createdLabel;
-    private String statusLabel;
-    private TaskBoard parent;
+    private final String descriptionLabel;
+    private final String createdLabel;
+    private final String statusLabel;
+    private final TaskBoard parent;
 
     TaskContainer(TaskBoard parent) {
         super();
@@ -132,9 +132,9 @@ public class TaskContainer
      * contactContainer.
      */
     private class TaskFilter implements Filter {
-        private String searchTerm;
+        private final String searchTerm;
 
-        public TaskFilter(String term) {
+        TaskFilter(String term) {
             this.searchTerm = term.toLowerCase();
         }
 

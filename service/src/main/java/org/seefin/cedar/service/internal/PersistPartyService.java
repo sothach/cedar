@@ -37,7 +37,7 @@ public class PersistPartyService
     /**
      * default constructor, used by Spring when creating a service bean
      */
-    public PersistPartyService() {
+    private PersistPartyService() {
     }
 
     /**
@@ -54,7 +54,7 @@ public class PersistPartyService
     @Override
     public Optional<Individual> findPartyById(PartyId id) {
         log.debug("find(partyId={})", id);
-        Map<String, Object> values = null;
+        Map<String, Object> values;
         try {
             values = partyMapper.find(id.toString());
         } catch (RuntimeException e) {
@@ -69,7 +69,7 @@ public class PersistPartyService
                 (String) values.get(USERNAME_COLUMN),
                 (String) values.get(PASSWORD_COLUMN),
                 new Locale((String) values.get(LOCALE_COLUMN)));
-        return Optional.ofNullable(result);
+        return Optional.of(result);
     }
 
     /**
@@ -79,7 +79,7 @@ public class PersistPartyService
     @Override
     public Optional<Individual> findPartyByUsername(String username) {
         log.debug("find(username={})", username);
-        Map<String, Object> values = null;
+        Map<String, Object> values;
         try {
             values = partyMapper.findByUsername(username);
         } catch (RuntimeException e) {
@@ -120,7 +120,7 @@ public class PersistPartyService
     public boolean
     isPasswordValid(String username, String password) {
         Optional<Individual> party = findPartyByUsername(username);
-        if (party.isPresent() == false) {
+        if (!party.isPresent()) {
             return false;
         }
         Individual user = party.get();
@@ -133,12 +133,12 @@ public class PersistPartyService
     @Override
     public Optional<Individual> logon(String username, String password) {
         Optional<Individual> party = findPartyByUsername(username);
-        if (party.isPresent() == false) {
+        if (!party.isPresent()) {
             log.debug("failed to logon user={}", username);
             return party; // this is a Failure
         }
         Individual user = party.get();
-        if (user.passwordMatches(password) == false) {
+        if (!user.passwordMatches(password)) {
             log.debug("incorrect password for logon user={}", username);
             return Optional.empty();
         }

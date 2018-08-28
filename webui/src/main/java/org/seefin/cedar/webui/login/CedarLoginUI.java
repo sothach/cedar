@@ -21,7 +21,7 @@ public class CedarLoginUI
         new Navigator(this, this);
 
         // initial login view where the user can login to the application
-        getNavigator().addView(""/*CedarLoginView.NAME*/, CedarLoginView.class);
+        getNavigator().addView("", CedarLoginView.class);
 
         // add application main view 
         getNavigator().addView(TaskBoard.NAME, TaskBoard.class);
@@ -37,7 +37,7 @@ public class CedarLoginUI
 
                 // always redirect to login view if user is not logged in
                 if (!isLoggedIn && !isLoginView) {
-                    getNavigator().navigateTo(""); //CedarLoginView.NAME);
+                    getNavigator().navigateTo("");
                     return false;
                 }
                 // cancel if someone tries to access to login view when already logged in

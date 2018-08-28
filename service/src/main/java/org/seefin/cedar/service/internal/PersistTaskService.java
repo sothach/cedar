@@ -53,7 +53,7 @@ public class PersistTaskService
     /**
      * default constructor (for, e.g., Spring)
      */
-    public PersistTaskService() {
+    private PersistTaskService() {
     }
 
     /**
@@ -62,7 +62,7 @@ public class PersistTaskService
     @Override
     public Optional<Task> findTaskById(TaskId id) {
         log.debug("find(taskId={})", id);
-        Map<String, Object> values = null;
+        Map<String, Object> values;
         try {
             values = taskMapper.find(id.toString());
         } catch (RuntimeException e) {

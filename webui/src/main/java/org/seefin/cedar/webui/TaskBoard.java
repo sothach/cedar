@@ -1,7 +1,6 @@
 package org.seefin.cedar.webui;
 
 import com.vaadin.annotations.Title;
-import com.vaadin.event.FieldEvents.TextChangeEvent;
 import com.vaadin.event.FieldEvents.TextChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -19,8 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Configurable;
 
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -36,24 +35,24 @@ public class TaskBoard
     public static final String NEW_TASK_ID = "cedar.taskboard.newTask";
     public static final String SEARCH_ID = "cedar.taskboard.search";
 
-    static final String CEDAR_TASKBOARD_TITLE = "cedar.ui.taskboard.title";
+    private static final String ResourceBundleName = "org.seefin.cedar.webui.i18n.CedarWebUI";
+    private static final String CEDAR_TASKBOARD_TITLE = "cedar.ui.taskboard.title";
+    private static final String LOGOUT_BUTTON_LABEL = "cedar.ui.taskboard.button.label.logout";
+    private static final String NEW_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.newTask";
+    private static final String SEARCH_TASKS_PROMPT = "cedar.ui.taskboard.search.prompt";
     static final String UPDATE_BUTTON_LABEL = "cedar.ui.taskboard.button.label.update";
     static final String DELETE_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.delete";
-    static final String LOGOUT_BUTTON_LABEL = "cedar.ui.taskboard.button.label.logout";
-    static final String NEW_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.newTask";
-    static final String SEARCH_TASKS_PROMPT = "cedar.ui.taskboard.search.prompt";
     static final String ENTER_TASK_DESCRIPTION = "cedar.ui.taskboard.edit.caption";
     static final String DESC = "cedar.ui.taskboard.edit.description";
     static final String CREATED = "cedar.ui.taskboard.edit.created";
     static final String STATUS = "cedar.ui.taskboard.edit.status";
-    private static final String ResourceBundleName = "org.seefin.cedar.webui.i18n.CedarWebUI";
 
     private static final Logger log = LoggerFactory.getLogger(TaskBoard.class);
 
     public static final String NAME = "TaskBoard"; // for navigation purposes
 
     /* user interface components are stored in session */
-    private TextField searchField = new TextField();
+    private final TextField searchField = new TextField();
     private Button newTaskButton;
     private Button logoutButton;
     private TaskEditor editor;
@@ -62,9 +61,6 @@ public class TaskBoard
 
     static final String TASK_ID = "TaskId"; // (hidden field)
 
-    private String DescriptionLabel;
-    private String CreatedLabel;
-    private String StatusLabel;
     private String[] visibleColumns;
     private String DateTimePattern;
 
@@ -89,7 +85,7 @@ public class TaskBoard
         // get logged-in user details and initialize view accordingly
         final Individual currentUser = getUser(String.valueOf(getSession().getAttribute("user")));
 
-        labels = loadResources(currentUser);
+        labels = loadResources(Objects.requireNonNull(currentUser));
 
         setSizeFull();
 
@@ -117,10 +113,10 @@ public class TaskBoard
         ResourceBundle result = ResourceBundle.getBundle(
                 ResourceBundleName, new Locale(user.getLocale()));
         AppTitle = result.getString(CEDAR_TASKBOARD_TITLE);
-        DescriptionLabel = result.getString(DESC);
-        CreatedLabel = result.getString(CREATED);
-        StatusLabel = result.getString(STATUS);
-        visibleColumns = new String[]{DescriptionLabel, CreatedLabel, StatusLabel};
+        String descriptionLabel = result.getString(DESC);
+        String createdLabel = result.getString(CREATED);
+        String statusLabel = result.getString(STATUS);
+        visibleColumns = new String[]{descriptionLabel, createdLabel, statusLabel};
         DateTimePattern = "MS"; // DateTimeFormatter.patternForStyle("MS", new Locale(user.getLocale()));
 
         return result;
@@ -205,38 +201,27 @@ public class TaskBoard
         searchField.setInputPrompt(labels.getString(SEARCH_TASKS_PROMPT));
         // send the text over the wire as soon as user stops writing for a moment
         searchField.setTextChangeEventMode(TextChangeEventMode.LAZY);
-        searchField.addTextChangeListener(new TextChangeListener() {
-            @Override
-            public void textChange(final TextChangeEvent event) {
-                taskContainer.resetFilter(event.getText());
-            }
-        });
+        searchField.addTextChangeListener((TextChangeListener) event -> taskContainer.resetFilter(event.getText()));
     }
 
     private void
     initButtons(Individual currentUser) {
         newTaskButton = new Button(labels.getString(NEW_TASK_BUTTON_LABEL));
         newTaskButton.setId(NEW_TASK_ID);
-        newTaskButton.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                // add a new row in the beginning of the list and select it
-                Object taskId = taskContainer.addNewRow();
-                taskPanel.createNewTask(taskId);
-            }
+        newTaskButton.addClickListener((ClickListener) event -> {
+            // add a new row in the beginning of the list and select it
+            Object taskId = taskContainer.addNewRow();
+            taskPanel.createNewTask(taskId);
         });
 
         logoutButton = new Button(
                 labels.getString(LOGOUT_BUTTON_LABEL) + " " + currentUser.getName());
         logoutButton.setId(LOGOUT_ID);
-        logoutButton.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                // "Logout" the user
-                getSession().setAttribute("user", null);
-                // Refresh this view, should redirect to login view
-                getUI().getNavigator().navigateTo("");
-            }
+        logoutButton.addClickListener((ClickListener) event -> {
+            // "Logout" the user
+            getSession().setAttribute("user", null);
+            // Refresh this view, should redirect to login view
+            getUI().getNavigator().navigateTo("");
         });
 
     }
@@ -278,7 +263,7 @@ public class TaskBoard
     getUser(String username) {
         Optional<Individual> party = partyService.findPartyByUsername(
                 String.valueOf(getSession().getAttribute("user")));
-        if (party.isPresent() == false) {
+        if (!party.isPresent()) {
             log.debug("user not found: [" + username + "]");
             return null;
         }
