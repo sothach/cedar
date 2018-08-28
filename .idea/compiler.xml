@@ -13,7 +13,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cedar" target="1.5" />
-      <module name="cedar-common" target="1.7" />
       <module name="cedar-model" target="1.8" />
       <module name="cedar-parent" target="1.8" />
       <module name="cedar-service" target="1.8" />
