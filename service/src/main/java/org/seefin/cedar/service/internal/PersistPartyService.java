@@ -43,7 +43,7 @@ public class PersistPartyService
     /**
      * Constructor useful for testing purposes
      */
-    public PersistPartyService(PartyMapper partyMapper) {
+    public PersistPartyService(final PartyMapper partyMapper) {
         this.partyMapper = partyMapper;
     }
 
@@ -52,7 +52,7 @@ public class PersistPartyService
      * {@inheritDoc}
      */
     @Override
-    public Optional<Individual> findPartyById(PartyId id) {
+    public Optional<Individual> findPartyById(final PartyId id) {
         log.debug("find(partyId={})", id);
         Map<String, Object> values;
         try {
@@ -65,7 +65,7 @@ public class PersistPartyService
             log.debug("query returned no results");
             return Optional.empty();
         }
-        Individual result = new Individual(id,
+        final Individual result = new Individual(id,
                 (String) values.get(USERNAME_COLUMN),
                 (String) values.get(PASSWORD_COLUMN),
                 new Locale((String) values.get(LOCALE_COLUMN)));
@@ -77,7 +77,7 @@ public class PersistPartyService
      * {@inheritDoc}
      */
     @Override
-    public Optional<Individual> findPartyByUsername(String username) {
+    public Optional<Individual> findPartyByUsername(final String username) {
         log.debug("find(username={})", username);
         Map<String, Object> values;
         try {
@@ -105,7 +105,7 @@ public class PersistPartyService
      * {@inheritDoc}
      */
     @Override
-    public void saveParty(Individual party) {
+    public void saveParty(final Individual party) {
         try {
             partyMapper.insert(party);
         } catch (RuntimeException e) {
@@ -118,12 +118,12 @@ public class PersistPartyService
      */
     @Override
     public boolean
-    isPasswordValid(String username, String password) {
-        Optional<Individual> party = findPartyByUsername(username);
+    isPasswordValid(final String username, final String password) {
+        final Optional<Individual> party = findPartyByUsername(username);
         if (!party.isPresent()) {
             return false;
         }
-        Individual user = party.get();
+        final Individual user = party.get();
         return user.passwordMatches(password);
     }
 
@@ -131,13 +131,13 @@ public class PersistPartyService
      * {@inheritDoc}
      */
     @Override
-    public Optional<Individual> logon(String username, String password) {
-        Optional<Individual> party = findPartyByUsername(username);
+    public Optional<Individual> logon(final String username, final String password) {
+        final Optional<Individual> party = findPartyByUsername(username);
         if (!party.isPresent()) {
             log.debug("failed to logon user={}", username);
             return party; // this is a Failure
         }
-        Individual user = party.get();
+        final Individual user = party.get();
         if (!user.passwordMatches(password)) {
             log.debug("incorrect password for logon user={}", username);
             return Optional.empty();

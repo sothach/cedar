@@ -79,7 +79,7 @@ public class TaskBoard
      * element appropriately, ex-ject the services out of the Spring context
      */
     @Override
-    public void enter(ViewChangeEvent event) {
+    public void enter(final ViewChangeEvent event) {
         loadServices();
 
         // get logged-in user details and initialize view accordingly
@@ -95,7 +95,7 @@ public class TaskBoard
 
         editor = new TaskEditor(this);
         taskPanel = new TaskTable(this, taskContainer);
-        Component layout = createPagelayout();
+        final Component layout = createPagelayout();
         setCompositionRoot(layout);
 
         initSearch();
@@ -109,13 +109,13 @@ public class TaskBoard
      * @return the resource bundle
      */
     private ResourceBundle
-    loadResources(Individual user) {
-        ResourceBundle result = ResourceBundle.getBundle(
+    loadResources(final Individual user) {
+        final ResourceBundle result = ResourceBundle.getBundle(
                 ResourceBundleName, new Locale(user.getLocale()));
         AppTitle = result.getString(CEDAR_TASKBOARD_TITLE);
-        String descriptionLabel = result.getString(DESC);
-        String createdLabel = result.getString(CREATED);
-        String statusLabel = result.getString(STATUS);
+        final String descriptionLabel = result.getString(DESC);
+        final String createdLabel = result.getString(CREATED);
+        final String statusLabel = result.getString(STATUS);
         visibleColumns = new String[]{descriptionLabel, createdLabel, statusLabel};
         DateTimePattern = "MS"; // DateTimeFormatter.patternForStyle("MS", new Locale(user.getLocale()));
 
@@ -133,7 +133,7 @@ public class TaskBoard
      * pull the required services in from the Spring context
      */
     private void loadServices() {
-        SpringContextHelper springHelper
+        final SpringContextHelper springHelper
                 = new SpringContextHelper(
                 VaadinServlet.getCurrent().getServletContext());
         partyService = (PartyService) springHelper.getBean("partyService");
@@ -148,21 +148,21 @@ public class TaskBoard
      */
     private Component
     createPagelayout() {
-        VerticalSplitPanel mainWindow = new VerticalSplitPanel();
+        final VerticalSplitPanel mainWindow = new VerticalSplitPanel();
         mainWindow.setSplitPosition(52, Unit.PIXELS);
         mainWindow.setLocked(true);
-        Component topBarLayout = buildTopbar();
+        final Component topBarLayout = buildTopbar();
 
-        HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
+        final HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
         mainWindow.addComponent(topBarLayout);
         mainWindow.addComponent(splitPanel);
 
         // Build the component tree
-        VerticalLayout leftLayout = new VerticalLayout();
+        final VerticalLayout leftLayout = new VerticalLayout();
         splitPanel.addComponent(leftLayout);
         splitPanel.addComponent(editor.getLayout());
         leftLayout.addComponent(taskPanel);
-        HorizontalLayout bottomLeftLayout = new HorizontalLayout();
+        final HorizontalLayout bottomLeftLayout = new HorizontalLayout();
         leftLayout.addComponent(bottomLeftLayout);
         bottomLeftLayout.addComponent(searchField);
         bottomLeftLayout.addComponent(newTaskButton);
@@ -183,7 +183,7 @@ public class TaskBoard
      * @return the top-bar of the main window: title + logged-in user info + logout button
      */
     private Component buildTopbar() {
-        AbsoluteLayout topBarLayout = new AbsoluteLayout();
+        final AbsoluteLayout topBarLayout = new AbsoluteLayout();
         topBarLayout.setWidth("100%");
 
         final Label appTitle = new Label(AppTitle);
@@ -205,12 +205,12 @@ public class TaskBoard
     }
 
     private void
-    initButtons(Individual currentUser) {
+    initButtons(final Individual currentUser) {
         newTaskButton = new Button(labels.getString(NEW_TASK_BUTTON_LABEL));
         newTaskButton.setId(NEW_TASK_ID);
         newTaskButton.addClickListener((ClickListener) event -> {
             // add a new row in the beginning of the list and select it
-            Object taskId = taskContainer.addNewRow();
+            final Object taskId = taskContainer.addNewRow();
             taskPanel.createNewTask(taskId);
         });
 
@@ -227,8 +227,8 @@ public class TaskBoard
     }
 
     void deleteCurrentTask() {
-        Object listItemId = taskPanel.getValue();
-        Task currentTask = taskContainer.getTaskFromItem(listItemId);
+        final Object listItemId = taskPanel.getValue();
+        final Task currentTask = taskContainer.getTaskFromItem(listItemId);
         if (currentTask != null) {
             taskService.updateTask(currentTask.delete());
         }
@@ -240,9 +240,9 @@ public class TaskBoard
      *
      * @param listItemId
      */
-    void updateTask(Object listItemId) {
-        Task updateTask = taskContainer.getTaskFromItem(listItemId);
-        Optional<Task> existingTask = taskService.findTaskById(updateTask.getTaskId());
+    void updateTask(final Object listItemId) {
+        final Task updateTask = taskContainer.getTaskFromItem(listItemId);
+        final Optional<Task> existingTask = taskService.findTaskById(updateTask.getTaskId());
         if (existingTask.isPresent()) {
             log.debug("Updating task={}", updateTask);
             taskService.updateTask(updateTask);
@@ -260,8 +260,8 @@ public class TaskBoard
     }
 
     private Individual
-    getUser(String username) {
-        Optional<Individual> party = partyService.findPartyByUsername(
+    getUser(final String username) {
+        final Optional<Individual> party = partyService.findPartyByUsername(
                 String.valueOf(getSession().getAttribute("user")));
         if (!party.isPresent()) {
             log.debug("user not found: [" + username + "]");
@@ -276,7 +276,7 @@ public class TaskBoard
      * @param key of the resource request
      * @return the value associated with the key in the bundle
      */
-    String getResourceLabel(String key) {
+    String getResourceLabel(final String key) {
         return labels.getString(key);
     }
 

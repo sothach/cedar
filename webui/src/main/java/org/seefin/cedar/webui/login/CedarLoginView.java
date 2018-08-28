@@ -53,7 +53,7 @@ public class CedarLoginView
     public CedarLoginView() {
         // we cannot set the user's locale, as we don't know
         // who they are yet, so use the platform default
-        ResourceBundle labels = ResourceBundle.getBundle(
+        final ResourceBundle labels = ResourceBundle.getBundle(
                 ResourceBundleName, Locale.getDefault());
 
         partyService = getPartyService();
@@ -84,7 +84,7 @@ public class CedarLoginView
     }
 
     private Label createFeedbackField() {
-        Label result = new Label();
+        final Label result = new Label();
         result.setId(FEEDBACK_ID);
         result.setWidth("300px");
         result.setStyleName(Reindeer.LABEL_H2);
@@ -93,15 +93,15 @@ public class CedarLoginView
     }
 
     // Create login button
-    private Button createLoginButton(ResourceBundle labels) {
-        Button result = new Button(labels.getString(LOGIN_BUTTON_LABEL), this);
+    private Button createLoginButton(final ResourceBundle labels) {
+        final Button result = new Button(labels.getString(LOGIN_BUTTON_LABEL), this);
         result.setId(SUBMIT_ID);
         return result;
     }
 
     // Create the password input field
-    private PasswordField createPasswordField(ResourceBundle labels) {
-        PasswordField result = new PasswordField(labels.getString(PASSWORD_LABEL));
+    private PasswordField createPasswordField(final ResourceBundle labels) {
+        final PasswordField result = new PasswordField(labels.getString(PASSWORD_LABEL));
         result.setId(PASSWORD_ID);
         result.setWidth("300px");
         result.setRequired(true);
@@ -111,8 +111,8 @@ public class CedarLoginView
     }
 
     // Create the user input field
-    private TextField createUserField(ResourceBundle labels) {
-        TextField result = new TextField(labels.getString(USERNAME_LABEL));
+    private TextField createUserField(final ResourceBundle labels) {
+        final TextField result = new TextField(labels.getString(USERNAME_LABEL));
         result.setId(USERNAME_ID);
         result.setWidth("300px");
         result.setRequired(true);
@@ -122,7 +122,7 @@ public class CedarLoginView
     }
 
     @Override
-    public void enter(ViewChangeEvent event) {
+    public void enter(final ViewChangeEvent event) {
         // focus the username field when user arrives to the login view
         user.focus();
     }
@@ -132,16 +132,16 @@ public class CedarLoginView
      */
     private PartyService
     getPartyService() {
-        SpringContextHelper springHelper
+        final SpringContextHelper springHelper
                 = new SpringContextHelper(
                 VaadinServlet.getCurrent().getServletContext());
         return (PartyService) springHelper.getBean("partyService");
     }
 
     @Override
-    public void buttonClick(ClickEvent event) {
-        String username = user.getValue();
-        String password = this.password.getValue();
+    public void buttonClick(final ClickEvent event) {
+        final String username = user.getValue();
+        final String password = this.password.getValue();
 
         // Validate username and password with the party service
         if (!partyService.isPasswordValid(username, password)) {

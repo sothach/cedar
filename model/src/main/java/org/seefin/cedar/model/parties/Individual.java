@@ -11,8 +11,7 @@ import java.util.Locale;
  *
  * @author phillipsr
  */
-public final class Individual
-        implements Party {
+public final class Individual implements Party {
     private final PartyId id;
     private final String name;
     private final String password;
@@ -24,7 +23,7 @@ public final class Individual
      * @param name     of the individual
      * @param password (hash) for the individual
      */
-    public Individual(String name, String password) {
+    public Individual(final String name, finl String password) {
         this(new PartyId(), name, password, Locale.getDefault());
     }
 
@@ -36,7 +35,7 @@ public final class Individual
      * @param password (hash) for the individual
      * @param locale   user's preferred Locale
      */
-    public Individual(PartyId id, String name, String password, Locale locale) {
+    public Individual(final PartyId id, final String name, final String password, final Locale locale) {
         if (id == null) {
             throw new IllegalArgumentException("Id cannot be null for existing individual");
         }
@@ -92,7 +91,7 @@ public final class Individual
      * @return true if the password supplied is the same as user's
      */
     public boolean
-    passwordMatches(String testPassword) {
+    passwordMatches(final String testPassword) {
         return DigestUtils.shaHex("{" + testPassword + "_").equals(this.password);
     }
 }

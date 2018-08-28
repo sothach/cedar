@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 public interface TaskMapper {
-    Map<String, Object> find(String taskId);
+    Map<String, Object> find(final String taskId);
 
     void insert(Task task);
 
-    List<Map<String, Object>> findAllTasksForParty(String partyId);
+    List<Map<String, Object>> findAllTasksForParty(final String partyId);
 
-    void update(Task task);
+    void update(final Task task);
 
-    void delete(String taskId);
+    void delete(final String taskId);
 
-    int getTaskCount(String taskId);
+    int getTaskCount(final String taskId);
 }

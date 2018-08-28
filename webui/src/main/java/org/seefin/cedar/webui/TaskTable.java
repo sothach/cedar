@@ -54,15 +54,15 @@ class TaskTable
 		});
 		*/
 
-        this.addValueChangeListener((ValueChangeListener) event -> { Object listItemId = TaskTable.super.getValue();
+        this.addValueChangeListener((ValueChangeListener) event -> { final Object listItemId = TaskTable.super.getValue();
             parent.getEditor().setItemDataSource(TaskTable.super.getItem(listItemId));
         });
     }
 
     @Override
     protected String formatPropertyValue(
-            Object rowId, Object colId, Property<?> property) {
-        Object v = property.getValue();
+            final Object rowId, final Object colId, final Property<?> property) {
+        final Object v = property.getValue();
         if (v instanceof LocalDateTime) {
             return dataTimeFormatter.format((LocalDateTime) v);
         }
@@ -70,7 +70,7 @@ class TaskTable
     }
 
     @SuppressWarnings("unchecked")
-    void createNewTask(Object taskId) {
+    void createNewTask(final Object taskId) {
         this.getContainerProperty(taskId, TaskBoard.TASK_ID).setValue((new TaskId()));
         this.getContainerProperty(taskId, descriptionLabel).setValue(descriptionCaption);
         this.getContainerProperty(taskId, createdLabel).setValue(LocalDateTime.now());

@@ -63,8 +63,7 @@ public class GUID
      * @param externalForm
      * @return GUID where externmalForm.equals(result.getExternalForm())
      */
-    public static GUID
-    parse(String externalForm) {
+    public static GUID parse(final String externalForm) {
         return new GUID(externalForm);
     }
 
@@ -81,7 +80,7 @@ public class GUID
      */
     @Override
     public boolean
-    equals(Object other) {
+    equals(final Object other) {
         if (this == other) {
             return true;
         }
@@ -106,7 +105,7 @@ public class GUID
      */
     @Override
     public int
-    compareTo(GUID otherId) {
+    compareTo(final GUID otherId) {
         return identity.compareTo(otherId.identity);
     }
 

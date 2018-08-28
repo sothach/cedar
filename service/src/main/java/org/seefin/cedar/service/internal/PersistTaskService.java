@@ -28,8 +28,7 @@ import java.util.Optional;
  */
 @Service("taskService")
 @Transactional
-public class PersistTaskService
-        implements TaskService {
+public class PersistTaskService implements TaskService {
     private static final Logger log = LoggerFactory.getLogger(PersistTaskService.class);
 
     @Resource
@@ -45,7 +44,7 @@ public class PersistTaskService
      * @param taskMapper   mapper access to persistent storage
      * @param partyService access to party information
      */
-    public PersistTaskService(TaskMapper taskMapper, PartyService partyService) {
+    public PersistTaskService(final TaskMapper taskMapper, final PartyService partyService) {
         this.taskMapper = taskMapper;
         this.partyService = partyService;
     }
@@ -60,7 +59,7 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public Optional<Task> findTaskById(TaskId id) {
+    public Optional<Task> findTaskById(final TaskId id) {
         log.debug("find(taskId={})", id);
         Map<String, Object> values;
         try {
@@ -74,8 +73,8 @@ public class PersistTaskService
             return Optional.empty();
         }
         log.debug("query results={}", values);
-        PartyId ownerId = new PartyId((String) values.get("OWNER_ID"));
-        Optional<Individual> owner = partyService.findPartyById(ownerId);
+        final PartyId ownerId = new PartyId((String) values.get("OWNER_ID"));
+        final Optional<Individual> owner = partyService.findPartyById(ownerId);
         if (!owner.isPresent()) {
             log.warn("Owner missing for task, ownerId={} taskId={}", values.get("OWNER_ID"), id);
             return Optional.empty();
@@ -87,18 +86,18 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public List<Task> findTasksForUser(PartyId id) {
-        Optional<Individual> party = getOwnerById(id);
+    public List<Task> findTasksForUser(final PartyId id) {
+        final Optional<Individual> party = getOwnerById(id);
         if (!party.isPresent()) {
             log.warn("Task owner not found: ownerId={}", id);
             return new ArrayList<>();
         }
-        List<Map<String, Object>> userTasks = taskMapper.findAllTasksForParty(id.getExternalForm());
+        final List<Map<String, Object>> userTasks = taskMapper.findAllTasksForParty(id.getExternalForm());
         if (userTasks.size() == 0) {
             log.debug("No tasks for ownerId={}", id);
             return new ArrayList<>();
         }
-        List<Task> result = new ArrayList<>(userTasks.size());
+        final List<Task> result = new ArrayList<>(userTasks.size());
         for (Map<String, Object> valueMap : userTasks) {
             result.add(getTaskFromMap(party.get(), valueMap));
         }
@@ -112,7 +111,7 @@ public class PersistTaskService
      * @param map  properties to use in creating result
      * @return new task, initialized from properties supplied
      */
-    private Task getTaskFromMap(Individual owner, Map<String, Object> map) {
+    private Task getTaskFromMap(final Individual owner, final Map<String, Object> map) {
         return new Task(new TaskId((String) map.get("ID")),
                 TaskState.valueOf((String) map.get("STATE")),
                 owner, (String) map.get("DESCRIPTION"),
@@ -123,7 +122,7 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public void saveTask(Task task) {
+    public void saveTask(final Task task) {
         try {
             taskMapper.insert(task);
         } catch (RuntimeException e) {
@@ -135,7 +134,7 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public void updateTask(Task task) {
+    public void updateTask(final Task task) {
         try {
             taskMapper.update(task);
         } catch (RuntimeException e) {
@@ -147,7 +146,7 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public void deleteTask(TaskId taskId) {
+    public void deleteTask(final TaskId taskId) {
         try {
             taskMapper.delete(taskId.getExternalForm());
         } catch (RuntimeException e) {
@@ -159,12 +158,12 @@ public class PersistTaskService
      * {@inheritDoc}
      */
     @Override
-    public int getTaskCountForUser(PartyId id) {
-        Optional<Individual> party = getOwnerById(id);
+    public int getTaskCountForUser(final PartyId id) {
+        final Optional<Individual> party = getOwnerById(id);
         if (!party.isPresent()) {
             return 0;
         }
-        Individual owner = party.get();
+        final Individual owner = party.get();
         try {
             return taskMapper.getTaskCount(owner.getId().toString());
         } catch (RuntimeException e) {
@@ -173,7 +172,7 @@ public class PersistTaskService
         }
     }
 
-    private Optional<Individual> getOwnerById(PartyId id) {
+    private Optional<Individual> getOwnerById(final PartyId id) {
         Optional<Individual> owner;
         try {
             owner = partyService.findPartyById(id);

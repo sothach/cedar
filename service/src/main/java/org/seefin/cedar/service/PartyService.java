@@ -20,14 +20,14 @@ public interface PartyService {
      * @return the party in the database with the id specified, as
      * either a Success or Failure object
      */
-    Optional<Individual> findPartyById(PartyId id);
+    Optional<Individual> findPartyById(final PartyId id);
 
     /**
      * @param username of requested party
      * @return the party in the database with the id specified, as
      * either a Success or Failure object
      */
-    Optional<Individual> findPartyByUsername(String username);
+    Optional<Individual> findPartyByUsername(final String username);
 
     /**
      * Save the supplied party (individual) to the persistence store
@@ -41,7 +41,7 @@ public interface PartyService {
      * @param password to validate
      * @return true if the specified user exists, and the password matches
      */
-    boolean isPasswordValid(String username, String password);
+    boolean isPasswordValid(final String username, final String password);
 
     /**
      * Validate and return an Individual user ('logon')
@@ -51,5 +51,5 @@ public interface PartyService {
      * @return a Success object wrapping the user specified, username found and
      * the password matches, else a Failure
      */
-    Optional<Individual> logon(String username, String password);
+    Optional<Individual> logon(final String username, final String password);
 }

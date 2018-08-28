@@ -21,38 +21,38 @@ public interface TaskService {
      * @param id (synthetic key) of requested task
      * @return the task with the id specified
      */
-    Optional<Task> findTaskById(TaskId id);
+    Optional<Task> findTaskById(final TaskId id);
 
     /**
      * @param userId (synthetic key) of user
      * @return the tasks with the user id specified
      */
-    List<Task> findTasksForUser(PartyId userId);
+    List<Task> findTasksForUser(final PartyId userId);
 
     /**
      * Save the supplied task object
      *
      * @param task to be saved
      */
-    void saveTask(Task task);
+    void saveTask(final Task task);
 
     /**
      * Update the supplied task object
      *
      * @param task to be updated
      */
-    void updateTask(Task task);
+    void updateTask(final Task task);
 
     /**
      * Delete the supplied task object
      *
      * @param taskId to be deleted
      */
-    void deleteTask(TaskId taskId);
+    void deleteTask(final TaskId taskId);
 
     /**
      * @param userId
      * @return the number of tasks owned by the specified user
      */
-    int getTaskCountForUser(PartyId userId);
+    int getTaskCountForUser(final PartyId userId);
 }

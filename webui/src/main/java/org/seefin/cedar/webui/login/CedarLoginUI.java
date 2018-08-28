@@ -15,7 +15,7 @@ import org.seefin.cedar.webui.TaskBoard;
 public class CedarLoginUI
         extends UI {
     @Override
-    protected void init(VaadinRequest request) {
+    protected void init(final VaadinRequest request) {
 
         setLocale(request.getLocale()); // set the default locale from the request
         new Navigator(this, this);
@@ -32,8 +32,8 @@ public class CedarLoginUI
             @Override
             public boolean beforeViewChange(ViewChangeEvent event) {
                 // check if a user has logged in
-                boolean isLoggedIn = getSession().getAttribute("user") != null;
-                boolean isLoginView = event.getNewView() instanceof CedarLoginView;
+                final boolean isLoggedIn = getSession().getAttribute("user") != null;
+                final boolean isLoginView = event.getNewView() instanceof CedarLoginView;
 
                 // always redirect to login view if user is not logged in
                 if (!isLoggedIn && !isLoginView) {
@@ -45,7 +45,7 @@ public class CedarLoginUI
             }
 
             @Override
-            public void afterViewChange(ViewChangeEvent event) {
+            public void afterViewChange(final ViewChangeEvent event) {
                 // nix zu tun
             }
         });

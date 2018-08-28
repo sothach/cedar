@@ -28,7 +28,7 @@ class TaskContainer
     private final String statusLabel;
     private final TaskBoard parent;
 
-    TaskContainer(TaskBoard parent) {
+    TaskContainer(final TaskBoard parent) {
         super();
         this.parent = parent;
         descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
@@ -36,20 +36,20 @@ class TaskContainer
         statusLabel = parent.getResourceLabel(TaskBoard.STATUS);
     }
 
-    void loadTasks(String username) {
+    void loadTasks(final String username) {
         this.addContainerProperty(TaskBoard.TASK_ID, TaskId.class, null);
         this.addContainerProperty(descriptionLabel, String.class, "");
         this.addContainerProperty(createdLabel, LocalDateTime.class, null);
         this.addContainerProperty(statusLabel, CheckBox.class, false);
 
-        Optional<Individual> user = parent.getPartyService().findPartyByUsername(username);
+        final Optional<Individual> user = parent.getPartyService().findPartyByUsername(username);
         if (!user.isPresent()) {
             // TODO: display error in view?
             log.debug("current user not found (username=" + username + ")");
             return;
         }
         owner = user.get();
-        List<Task> userTasks = parent.getTaskService().findTasksForUser(owner.getId());
+        final List<Task> userTasks = parent.getTaskService().findTasksForUser(owner.getId());
         for (Task task : userTasks) {
             Object id = this.addItem();
             setTaskProperties(task, id);
@@ -80,7 +80,7 @@ class TaskContainer
     @SuppressWarnings("deprecation")
     CheckBox buildCheckbox(final TaskState state, final Object id) {
         // TODO: this is ugly: is there a better way to add the check-box and its listener?
-        CheckBox result = new CheckBox();
+        final CheckBox result = new CheckBox();
         result.setImmediate(true); // ensure changes reported to server immediately
         result.setValue(state == TaskState.CHECKED);
 
@@ -94,23 +94,23 @@ class TaskContainer
      * @param listItemId
      * @return a new task object, or null if currentItem does not have valid properties
      */
-    Task getTaskFromItem(Object listItemId) {
-        Item currentItem = this.getItem(listItemId);
+    Task getTaskFromItem(final Object listItemId) {
+        final Item currentItem = this.getItem(listItemId);
         @SuppressWarnings("rawtypes")
-        Property value = currentItem.getItemProperty(TaskBoard.TASK_ID);
+        final Property value = currentItem.getItemProperty(TaskBoard.TASK_ID);
         if (value == null) {
             log.debug("current task does not (yet) have a value");
             return null;
         }
-        TaskId id = (TaskId) currentItem.getItemProperty(TaskBoard.TASK_ID).getValue();
+        final TaskId id = (TaskId) currentItem.getItemProperty(TaskBoard.TASK_ID).getValue();
         if (id == null) {
             log.debug("current task does not (yet) have an Id");
             return null;
         }
-        String description = (String) currentItem.getItemProperty(descriptionLabel).getValue();
-        LocalDateTime createTime = (LocalDateTime) currentItem.getItemProperty(createdLabel).getValue();
-        CheckBox cb = (CheckBox) currentItem.getItemProperty(statusLabel).getValue();
-        TaskState state = cb.getValue() ? TaskState.CHECKED : TaskState.UNCHECKED;
+        final String description = (String) currentItem.getItemProperty(descriptionLabel).getValue();
+        final LocalDateTime createTime = (LocalDateTime) currentItem.getItemProperty(createdLabel).getValue();
+        final CheckBox cb = (CheckBox) currentItem.getItemProperty(statusLabel).getValue();
+        final TaskState state = cb.getValue() ? TaskState.CHECKED : TaskState.UNCHECKED;
 
         return new Task(id, state, owner, description, createTime);
     }
@@ -120,7 +120,7 @@ class TaskContainer
      *
      * @param searchTerm to filter by
      */
-    void resetFilter(String searchTerm) {
+    void resetFilter(final String searchTerm) {
         /* Reset the filter for the contactContainer. */
         this.removeAllContainerFilters();
         this.addContainerFilter(
@@ -134,14 +134,14 @@ class TaskContainer
     private class TaskFilter implements Filter {
         private final String searchTerm;
 
-        TaskFilter(String term) {
+        TaskFilter(final String term) {
             this.searchTerm = term.toLowerCase();
         }
 
         @Override
         public boolean
-        passesFilter(Object itemId, Item item) {
-            String description = (String) item.getItemProperty(descriptionLabel).getValue();
+        passesFilter(final Object itemId, final Item item) {
+            final String description = (String) item.getItemProperty(descriptionLabel).getValue();
             return description.toLowerCase().contains(searchTerm);
         }
 

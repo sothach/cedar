@@ -38,7 +38,7 @@ public final class Task
      * @throws IllegalArgumentException if the supplied description is
      *                                  null or an empty string
      */
-    public Task(Individual owner, String description) {
+    public Task(final Individual owner, final String description) {
         this(new TaskId(), TaskState.UNCHECKED, owner, description, LocalDateTime.now());
     }
 
@@ -51,7 +51,8 @@ public final class Task
      * @param description text for the task
      * @param created     date and time task was created
      */
-    public Task(TaskId id, TaskState state, Individual owner, String description, LocalDateTime created) {
+    public Task(final TaskId id, final TaskState state, final Individual owner,
+                final String description, final LocalDateTime created) {
         if (id == null) {
             throw new IllegalArgumentException("task id cannot be null");
         }

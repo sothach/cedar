@@ -41,13 +41,13 @@ public class TaskEditor {
     initEditor(final TaskBoard parent) {
         addButtonListeners(parent);
 
-        HorizontalLayout controlPanel = new HorizontalLayout();
+        final HorizontalLayout controlPanel = new HorizontalLayout();
         controlPanel.addComponent(deleteTaskButton);
         controlPanel.addComponent(updateTaskButton);
         editorLayout.addComponent(controlPanel);
 
-        String descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
-        TextArea field = new TextArea(descriptionLabel);
+        final String descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
+        final TextArea field = new TextArea(descriptionLabel);
         field.setId(DESCRIPTION_ID);
         editorLayout.addComponent(field);
         field.setMaxLength(2000); // TODO: temp fix for Bug #1
@@ -63,7 +63,6 @@ public class TaskEditor {
     private void
     addButtonListeners(final TaskBoard parent) {
         deleteTaskButton.addClickListener((ClickListener) event -> parent.deleteCurrentTask());
-
         updateTaskButton.addClickListener((ClickListener) event -> parent.updateCurrentTask());
     }
 
@@ -81,7 +80,7 @@ public class TaskEditor {
      *
      * @param item
      */
-    public void setItemDataSource(Item item) {
+    public void setItemDataSource(final Item item) {
         editorFields.setItemDataSource(item);
         editorLayout.setVisible(item != null);
     }

@@ -14,7 +14,7 @@ public class SpringContextHelper {
 
     private final ApplicationContext context;
 
-    public SpringContextHelper(ServletContext servletContext) {
+    public SpringContextHelper(final ServletContext servletContext) {
         /*ServletContext servletContext = 
                 ((WebApplicationContext) application.getContext())
                 .getHttpSession().getServletContext();*/
