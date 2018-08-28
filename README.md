@@ -134,5 +134,9 @@ UI text is abstracted to a resource bundle, English and German provided (login a
 mvn cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=html
 ```
 
+### Status
+[![Build Status](https://travis-ci.org/sothach/cedar.png)](https://travis-ci.org/sothach/cedar)
+[![Coverage Status](https://coveralls.io/repos/github/sothach/cedar/badge.svg?branch=master)](https://coveralls.io/github/sothach/cedar?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c76d1333d7f7444394c4cd49def96e8d)](https://www.codacy.com/project/sothach/cedar/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sothach/cedar&amp;utm_campaign=Badge_Grade_Dashboard)
 
 

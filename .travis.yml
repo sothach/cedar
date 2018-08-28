@@ -6,8 +6,6 @@ jdk:
 
 install: true
 
-script: "mvn cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=html"
-
 matrix:
   fast_finish: true
 
@@ -17,5 +15,5 @@ cache:
   - '$HOME/jvm'
   - '$HOME/maven'
 
-notifications:
-  email: false
+after_success:
+  - mvn cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=xml coveralls:report

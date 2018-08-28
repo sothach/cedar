@@ -2,48 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="829de0a4-23a6-400c-8190-069e2980ade7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/tasks.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/tasks.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TaskModelTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TaskModelTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TestIds.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TestIds.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TestParty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/TEST-org.seefin.cedar.model.tests.TestParty.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TaskModelTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TaskModelTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TestIds.txt" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TestIds.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TestParty.txt" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/surefire-reports/org.seefin.cedar.model.tests.TestParty.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/data/tasks.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/data/tasks.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.PartyPersistTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.PartyPersistTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestPartyDBErrors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestPartyDBErrors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestTaskDBErrors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestTaskDBErrors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestTaskPersist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.TestTaskPersist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.regressions.TestBug_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.persist.regressions.TestBug_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.PartyServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.PartyServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.ServiceInterfaceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.ServiceInterfaceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.specs.SpecTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/TEST-org.seefin.cedar.service.specs.SpecTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.PartyPersistTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.PartyPersistTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestPartyDBErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestPartyDBErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestTaskDBErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestTaskDBErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestTaskPersist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.TestTaskPersist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.regressions.TestBug_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.persist.regressions.TestBug_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.PartyServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.PartyServiceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.ServiceInterfaceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.ServiceInterfaceTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.specs.SpecTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/surefire-reports/org.seefin.cedar.service.specs.SpecTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/data/tasks.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webui/data/tasks.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/webui/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/target/surefire-reports/TEST-org.seefin.cedar.webui.login.TestLogin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webui/target/surefire-reports/TEST-org.seefin.cedar.webui.login.TestLogin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/target/surefire-reports/TEST-org.seefin.cedar.webui.taskboard.TestTaskBoard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webui/target/surefire-reports/TEST-org.seefin.cedar.webui.taskboard.TestTaskBoard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/target/surefire-reports/org.seefin.cedar.webui.login.TestLogin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/webui/target/surefire-reports/org.seefin.cedar.webui.login.TestLogin.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webui/target/surefire-reports/org.seefin.cedar.webui.taskboard.TestTaskBoard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/webui/target/surefire-reports/org.seefin.cedar.webui.taskboard.TestTaskBoard.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/parent/target/" />
     <ignored path="$PROJECT_DIR$/service/target/" />
@@ -82,14 +43,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="114" />
-          <entry key="xml" value="28" />
+          <entry key="md" value="120" />
+          <entry key="txt" value="142" />
+          <entry key="xml" value="35" />
+          <entry key="yml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="114" />
-          <entry key="XML" value="28" />
+          <entry key="Markdown" value="120" />
+          <entry key="PLAIN_TEXT" value="142" />
+          <entry key="XML" value="35" />
+          <entry key="YAML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -99,21 +64,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="630">
+              <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="1920">
-                <caret line="128" selection-start-line="128" selection-end-line="128" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="720">
+                <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               </first_editor>
               <second_editor />
             </state>
@@ -132,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -165,9 +130,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/parent/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -243,7 +208,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535456749643" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535458171518" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -345,15 +310,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535453424770</updated>
-      <workItem from="1535453426273" duration="2217000" />
+      <workItem from="1535453426273" duration="3368000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated project dependancies (five years worth...)&#10;Jdk 5 -&gt; 8&#10;Tomcat 9&#10;Added Cobertura coverage reporting">
+      <created>1535456876999</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1535456876999</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated .travis.yml">
+      <created>1535457414677</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1535457414677</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2217000" />
+    <option name="totallyTimeSpent" value="3368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="25" width="1584" height="1005" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -394,25 +375,16 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated project dependancies (five years worth...)&#10;Jdk 5 -&gt; 8&#10;Tomcat 9&#10;Added Cobertura coverage reporting" />
+    <MESSAGE value="Updated .travis.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated .travis.yml" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/parent/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="173" column="11" selection-start-line="173" selection-start-column="11" selection-end-line="173" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -423,13 +395,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="1920">
-            <caret line="128" selection-start-line="128" selection-end-line="128" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="720">
+            <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
         </state>
       </provider>
     </entry>
