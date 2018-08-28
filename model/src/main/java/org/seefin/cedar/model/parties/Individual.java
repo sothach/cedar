@@ -23,7 +23,7 @@ public final class Individual implements Party {
      * @param name     of the individual
      * @param password (hash) for the individual
      */
-    public Individual(final String name, finl String password) {
+    public Individual(final String name, final String password) {
         this(new PartyId(), name, password, Locale.getDefault());
     }
 
