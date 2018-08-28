@@ -63,19 +63,9 @@ public class TaskEditor {
 
     private void
     addButtonListeners(final TaskBoard parent) {
-        deleteTaskButton.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                parent.deleteCurrentTask();
-            }
-        });
+        deleteTaskButton.addClickListener((ClickListener) event -> parent.deleteCurrentTask());
 
-        updateTaskButton.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                parent.updateCurrentTask();
-            }
-        });
+        updateTaskButton.addClickListener((ClickListener) event -> parent.updateCurrentTask());
     }
 
     /**

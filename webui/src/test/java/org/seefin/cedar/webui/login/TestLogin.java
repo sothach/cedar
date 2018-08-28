@@ -36,7 +36,7 @@ public class TestLogin {
     @Before
     public void
     loadApp() {
-        webClient = new WebClient(BrowserVersion.FIREFOX_17);
+        webClient = new WebClient(BrowserVersion.BEST_SUPPORTED);
         webClient.getOptions().setThrowExceptionOnScriptError(false);
         webClient.getOptions().setCssEnabled(true);
         webClient.getOptions().setJavaScriptEnabled(true);
@@ -45,7 +45,7 @@ public class TestLogin {
     @After
     public void
     unloadApp() {
-        webClient.closeAllWindows();
+        webClient.close();
     }
 
     @Test

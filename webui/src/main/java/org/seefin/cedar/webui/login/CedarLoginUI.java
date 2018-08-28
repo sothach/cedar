@@ -36,7 +36,7 @@ public class CedarLoginUI
                 boolean isLoginView = event.getNewView() instanceof CedarLoginView;
 
                 // always redirect to login view if user is not logged in
-                if (isLoggedIn == false && isLoginView == false) {
+                if (!isLoggedIn && !isLoginView) {
                     getNavigator().navigateTo(""); //CedarLoginView.NAME);
                     return false;
                 }

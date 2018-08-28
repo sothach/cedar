@@ -54,13 +54,8 @@ public class TaskTable
 		});
 		*/
 
-        this.addValueChangeListener(new ValueChangeListener() {
-            @Override
-            public void valueChange(Property.ValueChangeEvent event) {
-                Object listItemId = TaskTable.super.getValue();
-                parent.getEditor().setItemDataSource(TaskTable.super.getItem(listItemId));
-            }
-
+        this.addValueChangeListener((ValueChangeListener) event -> { Object listItemId = TaskTable.super.getValue();
+            parent.getEditor().setItemDataSource(TaskTable.super.getItem(listItemId));
         });
     }
 

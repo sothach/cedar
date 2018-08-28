@@ -84,13 +84,7 @@ public class TaskContainer
         result.setImmediate(true); // ensure changes reported to server immediately
         result.setValue(state == TaskState.CHECKED);
 
-        result.addListener(
-                new Property.ValueChangeListener() {
-                    @Override
-                    public void valueChange(final Property.ValueChangeEvent event) {
-                        parent.updateTask(id);
-                    }
-                });
+        result.addListener((Property.ValueChangeListener) event -> parent.updateTask(id));
         return result;
     }
 

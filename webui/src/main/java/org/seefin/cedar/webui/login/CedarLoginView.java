@@ -144,7 +144,7 @@ public class CedarLoginView
         String password = this.password.getValue();
 
         // Validate username and password with the party service
-        if (partyService.isPasswordValid(username, password) == false) {
+        if (!partyService.isPasswordValid(username, password)) {
             log.debug("Invalid login attempt, user={}", username);
             // Wrong password clear the password field and refocuses it
             this.feedback.setValue(InvalidLoginMessage);
