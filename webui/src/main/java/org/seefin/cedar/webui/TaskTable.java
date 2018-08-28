@@ -32,7 +32,7 @@ class TaskTable
         dataTimeFormatter = DateTimeFormatter.ofPattern(parent.getDateTimePattern());
 
         this.setContainerDataSource(parent.getTaskContainer());
-        this.setVisibleColumns(parent.getVisibleColumns(), null);
+        this.setVisibleColumns(parent.getVisibleColumns());
         this.setSelectable(true);
         this.setMultiSelect(false);
         this.setImmediate(true);

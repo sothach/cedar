@@ -146,7 +146,7 @@ mvn test
 ```
 mvn tomcat:run
 ```
-Visit: [http://localhost:8080/cedar-webui](http://localhost:8080/cedar-webui)
+Visit: [http://localhost:8080/cedar-webui](http://localhost:8080/cedar-webui
 ## Test Coverage Report
 ```
 mvn cobertura:cobertura 
