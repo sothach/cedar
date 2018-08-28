@@ -137,6 +137,4 @@ mvn cobertura:cobertura -Dcobertura.aggregate=true -Dcobertura.report.format=htm
 ### Status
 [![Build Status](https://travis-ci.org/sothach/cedar.png)](https://travis-ci.org/sothach/cedar)
 [![Coverage Status](https://coveralls.io/repos/github/sothach/cedar/badge.svg?branch=master)](https://coveralls.io/github/sothach/cedar?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c76d1333d7f7444394c4cd49def96e8d)](https://www.codacy.com/project/sothach/cedar/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sothach/cedar&amp;utm_campaign=Badge_Grade_Dashboard)
-
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b938c9a4d5a24b7ba4e8423f19ae4c0f)](https://www.codacy.com/app/sothach/cedar?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sothach/cedar&amp;utm_campaign=Badge_Grade)
