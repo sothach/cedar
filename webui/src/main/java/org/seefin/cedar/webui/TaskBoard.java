@@ -7,7 +7,6 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import com.vaadin.ui.AbstractTextField.TextChangeEventMode;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.themes.Reindeer;
 import org.seefin.cedar.model.parties.Individual;
@@ -40,12 +39,19 @@ public class TaskBoard
     private static final String LOGOUT_BUTTON_LABEL = "cedar.ui.taskboard.button.label.logout";
     private static final String NEW_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.newTask";
     private static final String SEARCH_TASKS_PROMPT = "cedar.ui.taskboard.search.prompt";
-    static final String UPDATE_BUTTON_LABEL = "cedar.ui.taskboard.button.label.update";
-    static final String DELETE_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.delete";
-    static final String ENTER_TASK_DESCRIPTION = "cedar.ui.taskboard.edit.caption";
-    static final String DESC = "cedar.ui.taskboard.edit.description";
-    static final String CREATED = "cedar.ui.taskboard.edit.created";
-    static final String STATUS = "cedar.ui.taskboard.edit.status";
+    private static final String UPDATE_BUTTON_LABEL = "cedar.ui.taskboard.button.label.update";
+    private static final String DELETE_TASK_BUTTON_LABEL = "cedar.ui.taskboard.button.label.delete";
+    private static final String ENTER_TASK_DESCRIPTION = "cedar.ui.taskboard.edit.caption";
+    private static final String DESC = "cedar.ui.taskboard.edit.description";
+    private static final String CREATED = "cedar.ui.taskboard.edit.created";
+    private static final String STATUS = "cedar.ui.taskboard.edit.status";
+
+    static String getUpdateButtonLabel() { return UPDATE_BUTTON_LABEL; }
+    static String getDeleteButtonLabel() { return DELETE_TASK_BUTTON_LABEL; }
+    static String getEnterTaskDescription() { return ENTER_TASK_DESCRIPTION; }
+    static String getDescriptionLabel() { return DESC; }
+    static String getCreated() { return CREATED; }
+    static String getUStatus() { return STATUS; }
 
     private static final Logger log = LoggerFactory.getLogger(TaskBoard.class);
 
@@ -69,9 +75,6 @@ public class TaskBoard
     private PartyService partyService;
     private TaskService taskService;
     private String AppTitle;
-
-    public TaskBoard() {
-    }
 
     /**
      * {@inheritDoc}
@@ -125,7 +128,7 @@ public class TaskBoard
     /**
      * @return the user-locale configured date/time formatting pattern
      */
-    String getDateTimePattern() {
+    protected String getDateTimePattern() {
         return DateTimePattern;
     }
 
@@ -226,7 +229,7 @@ public class TaskBoard
 
     }
 
-    void deleteCurrentTask() {
+    protected void deleteCurrentTask() {
         final Object listItemId = taskPanel.getValue();
         final Task currentTask = taskContainer.getTaskFromItem(listItemId);
         if (currentTask != null) {
@@ -240,7 +243,7 @@ public class TaskBoard
      *
      * @param listItemId
      */
-    void updateTask(final Object listItemId) {
+    protected void updateTask(final Object listItemId) {
         final Task updateTask = taskContainer.getTaskFromItem(listItemId);
         final Optional<Task> existingTask = taskService.findTaskById(updateTask.getTaskId());
         if (existingTask.isPresent()) {
@@ -255,7 +258,7 @@ public class TaskBoard
     /**
      * save or update current task in the table
      */
-    void updateCurrentTask() {
+    protected void updateCurrentTask() {
         updateTask(taskPanel.getValue());
     }
 
@@ -276,42 +279,42 @@ public class TaskBoard
      * @param key of the resource request
      * @return the value associated with the key in the bundle
      */
-    String getResourceLabel(final String key) {
+    protected String getResourceLabel(final String key) {
         return labels.getString(key);
     }
 
     /**
      * @return the task container holding the task list
-     */
-    TaskContainer getTaskContainer() {
+    protected  */
+    protected TaskContainer getTaskContainer() {
         return taskContainer;
     }
 
     /**
      * @return the columns names to be displayed
      */
-    String[] getVisibleColumns() {
+    protected String[] getVisibleColumns() {
         return visibleColumns;
     }
 
     /**
      * @return the task editor
      */
-    TaskEditor getEditor() {
+    protected TaskEditor getEditor() {
         return editor;
     }
 
     /**
      * @return the party service
      */
-    PartyService getPartyService() {
+    protected PartyService getPartyService() {
         return partyService;
     }
 
     /**
      * @return the task service
      */
-    TaskService getTaskService() {
+    protected TaskService getTaskService() {
         return taskService;
     }
 

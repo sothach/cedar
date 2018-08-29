@@ -26,11 +26,11 @@ import java.util.ResourceBundle;
  */
 public class CedarLoginView
         extends CustomComponent implements View, Button.ClickListener {
-    static final String LOGINFORM_ID = "cedar.login.form";
+    public static final String LOGINFORM_ID = "cedar.login.form";
     public static final String USERNAME_ID = "cedar.login.username";
     public static final String SUBMIT_ID = "cedar.login.submit";
     public static final String PASSWORD_ID = "cedar.login.password";
-    static final String FEEDBACK_ID = "cedar.login.feedback";
+    public static final String FEEDBACK_ID = "cedar.login.feedback";
 
     private static final String LOGIN_BUTTON_LABEL = "cedar.ui.login.button.label";
     private static final String INVALID_LOGIN_MESSAGE = "cedar.ui.login.invalid.message";

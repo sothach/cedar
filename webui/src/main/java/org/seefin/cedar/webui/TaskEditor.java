@@ -27,9 +27,9 @@ public class TaskEditor {
     TaskEditor(final TaskBoard parent) {
         editorLayout.setMargin(true);
         editorLayout.setVisible(false);
-        deleteTaskButton = new Button(parent.getResourceLabel(TaskBoard.DELETE_TASK_BUTTON_LABEL));
+        deleteTaskButton = new Button(parent.getResourceLabel(TaskBoard.getDeleteButtonLabel()));
         deleteTaskButton.setId(DELETE_ID);
-        updateTaskButton = new Button(parent.getResourceLabel(TaskBoard.UPDATE_BUTTON_LABEL));
+        updateTaskButton = new Button(parent.getResourceLabel(TaskBoard.getUpdateButtonLabel()));
         updateTaskButton.setId(UPDATE_ID);
         initEditor(parent);
     }
@@ -46,7 +46,7 @@ public class TaskEditor {
         controlPanel.addComponent(updateTaskButton);
         editorLayout.addComponent(controlPanel);
 
-        final String descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
+        final String descriptionLabel = parent.getResourceLabel(TaskBoard.getDescriptionLabel());
         final TextArea field = new TextArea(descriptionLabel);
         field.setId(DESCRIPTION_ID);
         editorLayout.addComponent(field);

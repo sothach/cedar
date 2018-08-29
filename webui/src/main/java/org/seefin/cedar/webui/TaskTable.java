@@ -25,10 +25,10 @@ class TaskTable
     TaskTable(final TaskBoard parent, final TaskContainer taskContainer) {
         super();
         this.taskContainer = taskContainer;
-        descriptionCaption = parent.getResourceLabel(TaskBoard.ENTER_TASK_DESCRIPTION);
-        descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
-        createdLabel = parent.getResourceLabel(TaskBoard.CREATED);
-        statusLabel = parent.getResourceLabel(TaskBoard.STATUS);
+        descriptionCaption = parent.getResourceLabel(TaskBoard.getEnterTaskDescription());
+        descriptionLabel = parent.getResourceLabel(TaskBoard.getDescriptionLabel());
+        createdLabel = parent.getResourceLabel(TaskBoard.getCreated());
+        statusLabel = parent.getResourceLabel(TaskBoard.getUStatus());
         dataTimeFormatter = DateTimeFormatter.ofPattern(parent.getDateTimePattern());
 
         this.setContainerDataSource(parent.getTaskContainer());

@@ -31,12 +31,12 @@ class TaskContainer
     TaskContainer(final TaskBoard parent) {
         super();
         this.parent = parent;
-        descriptionLabel = parent.getResourceLabel(TaskBoard.DESC);
-        createdLabel = parent.getResourceLabel(TaskBoard.CREATED);
-        statusLabel = parent.getResourceLabel(TaskBoard.STATUS);
+        descriptionLabel = parent.getResourceLabel(TaskBoard.getDescriptionLabel());
+        createdLabel = parent.getResourceLabel(TaskBoard.getCreated());
+        statusLabel = parent.getResourceLabel(TaskBoard.getUStatus());
     }
 
-    void loadTasks(final String username) {
+    protected void loadTasks(final String username) {
         this.addContainerProperty(TaskBoard.TASK_ID, TaskId.class, null);
         this.addContainerProperty(descriptionLabel, String.class, "");
         this.addContainerProperty(createdLabel, LocalDateTime.class, null);
@@ -78,7 +78,7 @@ class TaskContainer
      * to it, to update the task on change
      */
     @SuppressWarnings("deprecation")
-    CheckBox buildCheckbox(final TaskState state, final Object id) {
+    protected CheckBox buildCheckbox(final TaskState state, final Object id) {
         // TODO: this is ugly: is there a better way to add the check-box and its listener?
         final CheckBox result = new CheckBox();
         result.setImmediate(true); // ensure changes reported to server immediately
@@ -94,7 +94,7 @@ class TaskContainer
      * @param listItemId
      * @return a new task object, or null if currentItem does not have valid properties
      */
-    Task getTaskFromItem(final Object listItemId) {
+    protected Task getTaskFromItem(final Object listItemId) {
         final Item currentItem = this.getItem(listItemId);
         @SuppressWarnings("rawtypes")
         final Property value = currentItem.getItemProperty(TaskBoard.TASK_ID);
@@ -120,7 +120,7 @@ class TaskContainer
      *
      * @param searchTerm to filter by
      */
-    void resetFilter(final String searchTerm) {
+    protected void resetFilter(final String searchTerm) {
         /* Reset the filter for the contactContainer. */
         this.removeAllContainerFilters();
         this.addContainerFilter(
@@ -154,7 +154,7 @@ class TaskContainer
     /**
      * @return
      */
-    Object addNewRow() {
+    protected Object addNewRow() {
         this.removeAllContainerFilters();
         return this.addItemAt(0);
     }
