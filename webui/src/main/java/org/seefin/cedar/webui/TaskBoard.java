@@ -46,13 +46,6 @@ public class TaskBoard
     private static final String CREATED = "cedar.ui.taskboard.edit.created";
     private static final String STATUS = "cedar.ui.taskboard.edit.status";
 
-    static String getUpdateButtonLabel() { return UPDATE_BUTTON_LABEL; }
-    static String getDeleteButtonLabel() { return DELETE_TASK_BUTTON_LABEL; }
-    static String getEnterTaskDescription() { return ENTER_TASK_DESCRIPTION; }
-    static String getDescriptionLabel() { return DESC; }
-    static String getCreated() { return CREATED; }
-    static String getUStatus() { return STATUS; }
-
     private static final Logger log = LoggerFactory.getLogger(TaskBoard.class);
 
     public static final String NAME = "TaskBoard"; // for navigation purposes
@@ -75,6 +68,13 @@ public class TaskBoard
     private PartyService partyService;
     private TaskService taskService;
     private String AppTitle;
+
+    protected static String getUpdateButtonLabel() { return UPDATE_BUTTON_LABEL; }
+    protected static String getDeleteButtonLabel() { return DELETE_TASK_BUTTON_LABEL; }
+    protected static String getEnterTaskDescription() { return ENTER_TASK_DESCRIPTION; }
+    protected static String getDescriptionLabel() { return DESC; }
+    protected static String getCreated() { return CREATED; }
+    protected static String getUStatus() { return STATUS; }
 
     /**
      * {@inheritDoc}

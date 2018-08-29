@@ -70,7 +70,7 @@ class TaskTable
     }
 
     @SuppressWarnings("unchecked")
-    void createNewTask(final Object taskId) {
+    protected void createNewTask(final Object taskId) {
         this.getContainerProperty(taskId, TaskBoard.TASK_ID).setValue((new TaskId()));
         this.getContainerProperty(taskId, descriptionLabel).setValue(descriptionCaption);
         this.getContainerProperty(taskId, createdLabel).setValue(LocalDateTime.now());
